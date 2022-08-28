@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<!-- <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+           "C:/lsaWebServer/tomcat7050/webapps/lsa/mybatis-3-mapper.dtd"> -->
+
+
+<mapper namespace="com.cos.blog.repository.user.UserRepositoryMybatis">
+	<select id="getAllMember" resultType="int">
+		select count(*) from users
+	</select>
+	
+<!-- 	<select id="userDuplChk" parameterType="String" resultType="int">
+		select count(*) from users where username = #{userName}
+	</select> -->
+	
+    <select id="getUserDetailByUsername" parameterType="String" resultType="com.cos.blog.entity.user.Users">
+		select * from users where username = #{userName}
+	</select>
+</mapper>
